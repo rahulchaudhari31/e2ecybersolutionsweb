@@ -1,0 +1,44 @@
+:root {
+  --cream: #faf5ec;
+  --cream-100: #fdf9f1;
+  --cream-200: #f4ead8;
+  --cream-300: #ebdbbf;
+
+  --ink: #14101a;
+  --ink-soft: #241e2b;
+  --ink-mute: #4a4351;
+
+  --pink: #cc0066;
+  --pink-mid: #f45ba8;
+  --pink-soft: #ffd9ec;
+  --pink-dark: #b80065;
+
+  --sunshine: #ffc83d;
+  --sunshine-soft: #ffefc2;
+
+  --lilac: #ede7f6;
+  --lilac-deep: #d8ccee;
+
+  --line: rgba(20, 16, 26, 0.12);
+  --line-strong: rgba(20, 16, 26, 0.24);
+  --line-light: rgba(250, 245, 236, 0.18);
+
+  --container: 1240px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+
+  --radius-xs: 0.5rem;
+  --radius-sm: 0.875rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 2rem;
+  --radius-xl: 2.75rem;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 20px 60px -24px rgba(20, 16, 26, 0.2);
+  --shadow-lift: 0 32px 90px -32px rgba(20, 16, 26, 0.38);
+  --shadow-pink: 0 24px 70px -24px rgba(204, 0, 102, 0.45);
+
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --header-height: 5rem;
+}
