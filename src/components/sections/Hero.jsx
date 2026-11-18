@@ -94,7 +94,7 @@ function BrowserMock() {
 
         <div className="mt-2.5 flex items-center justify-between gap-2 rounded-lg bg-cream-200 px-3 py-2">
           <span className="truncate text-[8px] font-semibold uppercase tracking-[0.08em] text-ink/65">
-            Strategy â†’ Design â†’ Develop â†’ Market
+            Strategy → Design → Develop → Market
           </span>
           <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ink text-cream">
             <Icon name="ArrowUpRight" className="h-2.5 w-2.5" />
@@ -411,7 +411,7 @@ export default function Hero() {
                   className="absolute -right-4 -top-6 font-display text-4xl font-light text-sunshine sm:-right-8 sm:text-5xl"
                   aria-hidden="true"
                 >
-                  âœ³
+                  ✳
                 </motion.span>
               </span>
             </h1>

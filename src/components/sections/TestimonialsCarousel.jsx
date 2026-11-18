@@ -67,7 +67,7 @@ export default function TestimonialsCarousel() {
                     transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <p className="max-w-2xl font-display text-[1.35rem] font-medium leading-snug tracking-[-0.02em] text-cream sm:text-[1.65rem]">
-                      â€œ{current.quote}â€
+                      “{current.quote}”
                     </p>
                     <footer className="mt-6 flex items-center gap-3">
                       <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sunshine font-display text-[11px] font-bold text-ink">
@@ -129,7 +129,7 @@ export default function TestimonialsCarousel() {
           <Reveal delay={0.1} className="lg:justify-self-end">
             <div className="relative flex flex-col items-center text-center">
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-cream">
-                Letâ€™s get you started
+                Let's get you started
               </p>
               <Magnetic strength={0.3}>
                 <Link
@@ -137,7 +137,7 @@ export default function TestimonialsCarousel() {
                   className="group mt-5 flex h-52 w-52 flex-col items-center justify-center rounded-full border border-cream/30 bg-cream text-ink shadow-lift transition-colors duration-500 hover:bg-sunshine sm:h-64 sm:w-64"
                 >
                   <span className="font-display text-4xl font-semibold tracking-[-0.05em] sm:text-5xl">
-                    Letâ€™s talk!
+                    Let's talk!
                   </span>
                   <span className="mt-3 flex h-10 w-10 items-center justify-center rounded-full bg-ink text-cream transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
                     <Icon name="ArrowUpRight" className="h-4 w-4" />
@@ -145,7 +145,7 @@ export default function TestimonialsCarousel() {
                 </Link>
               </Magnetic>
               <p className="mt-6 max-w-[24ch] font-hand text-2xl leading-tight text-sunshine">
-                tell us the messy version. weâ€™ll find the shape.
+                tell us the messy version. we'll find the shape.
               </p>
             </div>
           </Reveal>

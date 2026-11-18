@@ -18,7 +18,7 @@ const methods = [
     value: site.email,
     href: site.emailHref,
     icon: "Mail",
-    note: "Tell us what youâ€™re building",
+    note: "Tell us what you're building",
   },
   {
     label: "Visit",
@@ -55,7 +55,7 @@ export default function ContactTeaser() {
             <Reveal delay={0.1}>
               <p className="mt-5 max-w-md text-[14px] leading-relaxed text-ink/70">
                 No forms that vanish into the void. Talk to the people who will
-                actually do the work â€” from first idea to final launch.
+                actually do the work — from first idea to final launch.
               </p>
             </Reveal>
             <Reveal delay={0.15} className="mt-7">
@@ -140,7 +140,7 @@ export default function ContactTeaser() {
             <Reveal delay={0.24}>
               <div className="flex flex-wrap items-center justify-between gap-4 pt-6">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-ink/65">
-                  {site.parentBrand} Â· {site.location}
+                  {site.parentBrand} · {site.location}
                 </p>
                 <a
                   href={site.emailHref}

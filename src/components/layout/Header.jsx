@@ -12,6 +12,15 @@ import Icon from "../ui/Icon";
 import Button from "../ui/Button";
 import { useQuoteModal } from "../quote/QuoteModalProvider";
 
+const megaItem = {
+  hidden: { opacity: 0, y: 10 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.32, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
 function Wordmark({ light = false, onClick }) {
   return (
     <Link to="/" onClick={onClick} className="group flex items-center gap-2.5">
@@ -236,6 +245,16 @@ export default function Header() {
   const activeTone = darkBar
     ? "bg-cream text-ink"
     : "bg-ink text-cream";
+  const activeText = darkBar ? "text-ink" : "text-cream";
+  const navBase =
+    "relative rounded-full px-4 py-2.5 text-[13px] font-semibold tracking-tight transition-colors duration-300";
+  const activePill = `absolute inset-0 rounded-full ${activeTone}`;
+  const pillTransition = {
+    type: "spring",
+    stiffness: 420,
+    damping: 34,
+    mass: 0.6,
+  };
 
   return (
     <motion.header
@@ -286,14 +305,27 @@ export default function Header() {
                       setMegaOpen(true);
                     }
                   }}
-                  className={`flex items-center gap-1.5 rounded-full px-4 py-2.5 text-[13px] font-semibold tracking-tight transition-colors duration-300 ${
-                    serviceRouteActive ? activeTone : linkTone
+                  className={`flex items-center gap-1.5 ${navBase} ${
+                    serviceRouteActive ? "" : linkTone
                   }`}
                 >
-                  {item.label}
+                  {serviceRouteActive ? (
+                    <motion.span
+                      layoutId="nav-active-pill"
+                      className={activePill}
+                      transition={pillTransition}
+                    />
+                  ) : null}
+                  <span
+                    className={`relative z-10 ${
+                      serviceRouteActive ? activeText : ""
+                    }`}
+                  >
+                    {item.label}
+                  </span>
                   <Icon
                     name="ChevronDown"
-                    className={`h-3.5 w-3.5 transition-transform duration-300 ${
+                    className={`relative z-10 h-3.5 w-3.5 transition-transform duration-300 ${
                       megaOpen ? "rotate-180" : ""
                     }`}
                   />
@@ -306,12 +338,27 @@ export default function Header() {
                 end={item.to === "/"}
                 onClick={() => handleNavClick(item.to)}
                 className={({ isActive }) =>
-                  `rounded-full px-4 py-2.5 text-[13px] font-semibold tracking-tight transition-colors duration-300 ${
-                    isActive ? activeTone : linkTone
-                  }`
+                  `${navBase} ${isActive ? "" : linkTone}`
                 }
               >
-                {item.label}
+                {({ isActive }) => (
+                  <>
+                    {isActive ? (
+                      <motion.span
+                        layoutId="nav-active-pill"
+                        className={activePill}
+                        transition={pillTransition}
+                      />
+                    ) : null}
+                    <span
+                      className={`relative z-10 ${
+                        isActive ? activeText : ""
+                      }`}
+                    >
+                      {item.label}
+                    </span>
+                  </>
+                )}
               </NavLink>
             )
           )}
@@ -380,9 +427,18 @@ export default function Header() {
             className="pointer-events-auto absolute inset-x-3 top-full mx-auto mt-2 hidden max-w-6xl lg:block sm:inset-x-5"
           >
             <div className="overflow-hidden rounded-[1.8rem] border border-ink/10 bg-cream shadow-lift">
-              <div className="grid grid-cols-[1fr_1fr_1fr_0.95fr] gap-8 p-7">
+              <motion.div
+                className="grid grid-cols-[1fr_1fr_1fr_0.95fr] gap-8 p-7"
+                initial="hidden"
+                animate="show"
+                variants={{
+                  show: {
+                    transition: { staggerChildren: 0.05, delayChildren: 0.04 },
+                  },
+                }}
+              >
                 {serviceMegaMenu.map((group) => (
-                  <div key={group.id}>
+                  <motion.div key={group.id} variants={megaItem}>
                     <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-ink/65">
                       <Icon name={group.icon} className="h-3.5 w-3.5 text-pink" />
                       {group.label}
@@ -404,10 +460,13 @@ export default function Header() {
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </motion.div>
                 ))}
 
-                <div className="relative overflow-hidden rounded-[1.5rem] bg-ink p-6 text-cream">
+                <motion.div
+                  variants={megaItem}
+                  className="relative overflow-hidden rounded-[1.5rem] bg-ink p-6 text-cream"
+                >
                   <div
                     className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-pink/40 blur-2xl"
                     aria-hidden="true"
@@ -439,8 +498,8 @@ export default function Header() {
                     All services
                     <Icon name="ArrowRight" className="h-3.5 w-3.5" />
                   </Link>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
           </motion.div>
         ) : null}

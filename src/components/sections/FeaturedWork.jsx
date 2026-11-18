@@ -125,7 +125,7 @@ export default function FeaturedWork() {
                     <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 sm:p-6">
                       <div className="translate-y-0 transition-transform duration-500 lg:translate-y-3 lg:group-hover:translate-y-0">
                         <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-sunshine">
-                          {item.categoryLabel} Â· {item.year}
+                          {item.categoryLabel} · {item.year}
                         </p>
                         <h3 className="mt-1.5 font-display text-2xl font-semibold leading-none tracking-[-0.03em] text-cream sm:text-[1.9rem]">
                           {item.title}

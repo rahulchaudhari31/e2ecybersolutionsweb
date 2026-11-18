@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { homeServices } from "../../data/home";
 import { getService } from "../../data/services";
-import { Reveal, TiltCard } from "../animations";
+import { Reveal, SpotlightCard, TiltCard } from "../animations";
 import Eyebrow from "../ui/Eyebrow";
 import Icon from "../ui/Icon";
 import TornDivider from "../ui/TornDivider";
@@ -111,67 +111,65 @@ export default function HomeServices() {
                   innerClassName="h-full"
                   max={5}
                 >
-                  <Link
-                    to={service.path}
-                    className={`group relative flex h-full min-h-[290px] flex-col overflow-hidden rounded-[1.75rem] border border-cream/10 bg-cream p-6 text-ink transition-colors duration-500 ${tone.hover} sm:min-h-[320px] sm:p-7`}
+                  <SpotlightCard
+                    className="h-full"
+                    overlayClassName="rounded-[1.75rem]"
+                    color="rgba(255,255,255,0.22)"
                   >
-                    <span
-                      className={`pointer-events-none absolute -right-14 -top-16 h-40 w-40 rounded-full blur-3xl ${tone.glow}`}
-                      aria-hidden="true"
-                    />
-                    <span
-                      className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                      style={{
-                        background:
-                          "radial-gradient(420px circle at 50% 0%, rgba(255,255,255,0.8), transparent 66%)",
-                      }}
-                      aria-hidden="true"
-                    />
-
-                    <div className="relative flex items-start justify-between gap-4">
+                    <Link
+                      to={service.path}
+                      className={`group relative flex h-full min-h-[290px] flex-col overflow-hidden rounded-[1.75rem] border border-cream/10 bg-cream p-6 text-ink transition-colors duration-500 ${tone.hover} sm:min-h-[320px] sm:p-7`}
+                    >
                       <span
-                        className={`flex h-12 w-12 items-center justify-center rounded-2xl ${tone.icon} shadow-sm`}
-                      >
-                        <Icon
-                          name={service.icon}
-                          className="h-5 w-5"
-                          strokeWidth={1.7}
-                        />
-                      </span>
-                      <span className="font-display text-[11px] font-semibold tracking-[0.16em] text-ink/70">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                    </div>
+                        className={`pointer-events-none absolute -right-14 -top-16 h-40 w-40 rounded-full blur-3xl ${tone.glow}`}
+                        aria-hidden="true"
+                      />
 
-                    <h3 className="relative mt-8 max-w-[14ch] font-display text-[1.8rem] font-semibold leading-[0.98] tracking-[-0.035em] sm:text-[2rem]">
-                      {label}
-                    </h3>
-                    <p className="relative mt-3 line-clamp-3 max-w-[30ch] text-[13px] leading-relaxed text-ink/70">
-                      {service.blurb}
-                    </p>
-
-                    <div className="relative mt-auto flex items-end justify-between gap-4 pt-7">
-                      <div className="flex flex-wrap gap-1.5">
-                        {(service.offerings || []).slice(0, 2).map((item) => (
-                          <span
-                            key={item.title}
-                            className="rounded-full border border-ink/10 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.09em] text-ink/70"
-                          >
-                            {item.title}
-                          </span>
-                        ))}
+                      <div className="relative flex items-start justify-between gap-4">
+                        <span
+                          className={`flex h-12 w-12 items-center justify-center rounded-2xl ${tone.icon} shadow-sm`}
+                        >
+                          <Icon
+                            name={service.icon}
+                            className="h-5 w-5"
+                            strokeWidth={1.7}
+                          />
+                        </span>
+                        <span className="font-display text-[11px] font-semibold tracking-[0.16em] text-ink/70">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
                       </div>
-                      <span
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/10 text-ink transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 ${tone.arrow}`}
-                      >
-                        <Icon
-                          name="ArrowUpRight"
-                          className="h-4 w-4"
-                          strokeWidth={2}
-                        />
-                      </span>
-                    </div>
-                  </Link>
+
+                      <h3 className="relative mt-8 max-w-[14ch] font-display text-[1.8rem] font-semibold leading-[0.98] tracking-[-0.035em] sm:text-[2rem]">
+                        {label}
+                      </h3>
+                      <p className="relative mt-3 line-clamp-3 max-w-[30ch] text-[13px] leading-relaxed text-ink/70">
+                        {service.blurb}
+                      </p>
+
+                      <div className="relative mt-auto flex items-end justify-between gap-4 pt-7">
+                        <div className="flex flex-wrap gap-1.5">
+                          {(service.offerings || []).slice(0, 2).map((item) => (
+                            <span
+                              key={item.title}
+                              className="rounded-full border border-ink/10 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.09em] text-ink/70"
+                            >
+                              {item.title}
+                            </span>
+                          ))}
+                        </div>
+                        <span
+                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/10 text-ink transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 ${tone.arrow}`}
+                        >
+                          <Icon
+                            name="ArrowUpRight"
+                            className="h-4 w-4"
+                            strokeWidth={2}
+                          />
+                        </span>
+                      </div>
+                    </Link>
+                  </SpotlightCard>
                 </TiltCard>
               </Reveal>
             );

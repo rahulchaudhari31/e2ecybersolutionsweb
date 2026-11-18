@@ -16,7 +16,7 @@ export default function KeywordMarquees() {
       <Marquee
         items={site.marquee}
         ariaLabel="Our digital, design and marketing services"
-        separator="âœ³"
+        separator="✳"
         className="border-y border-ink/10 py-3"
         itemClassName="px-1 font-display text-[2.7rem] font-semibold leading-none tracking-[-0.05em] text-ink sm:text-6xl lg:text-7xl"
       />
@@ -24,7 +24,7 @@ export default function KeywordMarquees() {
       <Marquee
         items={site.marquee}
         ariaLabel="Our creative and technical capabilities"
-        separator="âœ³"
+        separator="✳"
         reverse
         className="border-b border-ink/10 py-3"
         itemClassName="px-1 font-display text-[2.7rem] font-semibold leading-none tracking-[-0.05em] text-transparent [-webkit-text-stroke:1.5px_#14101A] sm:text-6xl lg:text-7xl"

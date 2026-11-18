@@ -4,7 +4,7 @@ import useMagnetic from "../../hooks/useMagnetic";
 import Icon from "./Icon";
 
 const base =
-  "group relative inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-tight transition-all duration-500 ease-smooth hover:-translate-y-0.5 disabled:pointer-events-none disabled:opacity-50";
+  "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full font-semibold tracking-tight btn-sheen transition-all duration-500 ease-smooth hover:-translate-y-0.5 disabled:pointer-events-none disabled:opacity-50";
 
 const variants = {
   pink: "bg-pink text-cream hover:bg-ink hover:text-cream shadow-pink",
